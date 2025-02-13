@@ -1,0 +1,24 @@
+spring:
+    application:
+        name: student
+    config:
+        import: optional:configserver:http://localhost:8888
+
+#    datasource:
+#        url: jdbc:mysql://localhost:3306/microservice-student?createDatabaseIfNotExist=true
+#        username: root
+#        password: mohamedomar
+#    jpa:
+#        show-sql: true
+#        hibernate:
+#            ddl-auto: update
+#server:
+#    port: 8080
+#
+##  configurtation eureka server :
+#eureka:
+#    instance:
+#        hostname: localhost
+#    client:
+#        service-url:
+#          defaultZone: http://${eureka.instance.hostname}:8761/eureka
