@@ -38,7 +38,7 @@ public class SchoolController {
         return schoolService.findById(id);
     }
 
-    @PostMapping("/all")
+    @GetMapping("/all")
     public List<School> findAll() {
         return schoolService.findAll();
     }

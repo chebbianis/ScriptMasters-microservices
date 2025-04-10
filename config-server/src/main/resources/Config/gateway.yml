@@ -12,7 +12,7 @@ spring:
           enabled: true
       routes :
         - id: student-service
-          uri: http://localhost:8080
+          uri: http://localhost:8091
           predicates:
             - Path=/students/**
         - id: school-service
