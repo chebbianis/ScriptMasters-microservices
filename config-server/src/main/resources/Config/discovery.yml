@@ -1,11 +1,15 @@
 eureka:
+  server:
+    enable-self-preservation: false  # Désactiver le mode de self-preservation
+    eviction-interval-timer-in-ms: 5000  # Vérifier les instances toutes les 5s
   instance:
     hostname: localhost
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://discovery-service:8761/eureka
 
 server:
   port: 8761

@@ -1,7 +1,14 @@
 eureka:
   client:
-    register-with-eureka: false
-
+    register-with-eureka: true  # Activer l'enregistrement
+    fetch-registry: true        # Récupérer les autres services
+    service-url:
+      defaultZone: http://localhost:8761/eureka  # URL d'Eureka
+    healthcheck:
+      enabled: true  # Activer les health checks
+    instance:
+      lease-renewal-interval-in-seconds: 5      # Envoyer un heartbeat toutes les 5s
+      lease-expiration-duration-in-seconds: 15  # Délai avant expiration
 spring:
   application:
     name: gateway
@@ -19,6 +26,11 @@ spring:
           uri: http://localhost:8090
           predicates:
             - Path=/schools/**
+        - id: university-service
+          uri: http://localhost:8092
+          predicates:
+            - Path=/universities/**
+
   main:
     web-application-type: reactive
 

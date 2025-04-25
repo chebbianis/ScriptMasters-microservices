@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class SchoolService {
     private final SchoolRepository schoolRepository;
-    private final  StudentClient studentClient;
+    private final StudentClient studentClient;
 
     @Autowired
     public SchoolService(SchoolRepository schoolRepository, StudentClient studentClient) {
@@ -65,6 +65,13 @@ public class SchoolService {
         response.setStudents(students);
 
         return response;
+    }
+
+    /**
+     * Récupère toutes les écoles associées à une université donnée
+     */
+    public List<School> findSchoolsByUniversityId(Long universityId) {
+        return schoolRepository.findByUniversityId(universityId);
     }
 
 }

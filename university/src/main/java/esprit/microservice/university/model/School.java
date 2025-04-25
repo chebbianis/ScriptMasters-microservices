@@ -1,27 +1,21 @@
-package esprit.microservice.school.Entites;
+package esprit.microservice.university.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@Builder
+@AllArgsConstructor
 public class School {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String address;
     private String email;
     private String phone;
-    private String address;
     private Long universityId;
 
+    // Getters et Setters explicites en plus de Lombok pour assurer la compatibilité
     public Long getId() {
         return id;
     }
@@ -38,6 +32,14 @@ public class School {
         this.name = name;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -52,14 +54,6 @@ public class School {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public Long getUniversityId() {
